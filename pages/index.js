@@ -23,6 +23,18 @@ function HomePage() {
     const requestData = await request.json();
     console.log(requestData);
   };
+
+  const loadHandler = async () => {
+    const request = await fetch("/api/feedback", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const requestData = await request.json();
+    console.log(requestData);
+  };
   return (
     <div>
       <h1>The Home Page</h1>
@@ -37,6 +49,7 @@ function HomePage() {
         </div>
         <button> Submit </button>
       </form>
+      <button onClick={loadHandler}> Load feedbacks </button>
     </div>
   );
 }
